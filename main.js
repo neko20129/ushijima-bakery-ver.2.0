@@ -167,7 +167,7 @@ makeAll.addEventListener('click', () => {
 });
 
 saveElm.addEventListener('click', () => {
-  alert('以下をコピーしてください。出力された値を変更した場合、データが壊れる可能性があります。\n'
+  alert('以下をコピーしてください。出力された値を変更した場合、データが壊れる可能性があります。\n'+
         money+'*'+level+'*'+sold+'*'+levelUp+'*'+JSON.stringify(buyDisplay)+'*'+JSON.stringify(makeDisplay));
 });
 //ゲームループ
