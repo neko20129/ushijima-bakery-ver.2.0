@@ -174,13 +174,21 @@ saveElm.addEventListener('click', () => {
 loadElm.addEventListener('click', () => {
   let data = prompt('セーブデータを入力してください');
   let items = data.split('*');
-  if (items.length === 6) {
-    [money, level, sold, levelUp, buyDisplay, makeDisplay] = items;
-    buyDisplay = JSON.parse(buyDisplay);
-    makeDisplay = JSON.parse(makeDisplay);
-    alert('ロードに成功しました！');
-  } else {
-    alert('エラー: セーブデータを解析できません');
+  try {
+    if (items.length === 6) {
+      [money, level, sold, levelUp, buyDisplay, makeDisplay] = items;
+      buyDisplay = JSON.parse(buyDisplay);
+      makeDisplay = JSON.parse(makeDisplay);
+      alert('ロードに成功しました！');
+    } else {
+      alert('エラー: セーブコードのうちどれかの項目が足りません。');
+    }
+  } catch (error) {
+    if (error instanceof SyntaxError && error.message.includes("Unexpected end of JSON input")) {
+        alert('エラー: セーブコードのうち1項目が不完全です。');
+    } else {
+        throw error; // 他のエラーは再スロー
+    }
   }
 });
 //ゲームループ
