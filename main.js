@@ -242,7 +242,7 @@ myWorker.onmessage = function(e) {
         const having = makeDisplay[1][6] + makeDisplay[2][6] + makeDisplay[3][6] + makeDisplay[4][6] +
             makeDisplay[5][6] + makeDisplay[6][6] + makeDisplay[7][6];
         const n = Math.floor(
-            Math.random() * (1200 - //倍率定数
+            Math.random() * (1500 - //倍率定数
             having * 1.1 - //所持数倍率
             upgradeDisplay[1][1] * 2.12 - //アップグレード倍率
             level * 1.25 //レベル倍率
@@ -731,8 +731,8 @@ function comeBuyer() {
     //乱数で選んだ内の1つのパンの個数
     addMessage(makeDisplay[willbuytype][0] + 'が' + willbuynum + '個売れた');
     makeDisplay[willbuytype][6] = makeDisplay[willbuytype][6] - willbuynum;
-    money = money + makeDisplay[willbuytype][4] * willbuynum;
-    sold = sold + willbuynum + upgradeDisplay[3][1] * 80;
+    money = money + makeDisplay[willbuytype][4] * willbuynum + upgradeDisplay[3][1] * 80 - 80;
+    sold = sold + willbuynum;
     save();
 }
 
