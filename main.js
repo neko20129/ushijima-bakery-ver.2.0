@@ -226,7 +226,7 @@ const workerCode = `
     if (e.data === 'start') {
       setInterval(() => {
         self.postMessage('tick');
-      }, 10); // 0.01秒間隔
+      }, 30); // 0.01秒間隔
     }
   };
 `;
