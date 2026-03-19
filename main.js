@@ -262,7 +262,7 @@ myWorker.onmessage = function(e) {
         if (sold >= levelUp) {
             level++
             sold = sold - levelUp
-            levelUp = Math.floor(levelUp * 1.75);
+            levelUp = Math.floor(levelUp * 1.5);
             addMessage('レベルアップ！', 1)
         } 
     }
