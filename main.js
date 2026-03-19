@@ -194,7 +194,7 @@ upgradeB3.addEventListener('click', () => {
 });
 
 saveElm.addEventListener('click', () => {
-navigator.clipboard.writeText(money+'*'+level+'*'+sold+'*'+levelUp+'*'+JSON.stringify(buyDisplay)+'*'+JSON.stringify(makeDisplay)+'*'+JSON.stringify(upgradeDisplay));
+navigator.clipboard.writeText(money+'*'+level+'*'+sold+'*'+levelUp+'*'+buyDisplay+'*'+makeDisplay+'*'+upgradeDisplay);
   alert('クリップボードにコピーしました！　ctrl+Vで呼び出せます');
 });
 
@@ -204,9 +204,6 @@ loadElm.addEventListener('click', () => {
   try {
     if (items.length === 7) {
       [money, level, sold, levelUp, buyDisplay, makeDisplay, upgradeDisplay] = items;
-      buyDisplay = JSON.parse(buyDisplay);
-      makeDisplay = JSON.parse(makeDisplay);
-      upgradeDisplay = JSON.parse(upgradeDisplay);
       alert('ロードに成功しました！');
     } else {
       alert('エラー: セーブコードのうちどれかの項目が足りません。');
